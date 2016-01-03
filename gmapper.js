@@ -13,6 +13,10 @@
 			this.options = options || this.defalutOpt;
 			this.element = document.getElementById(element);
 
+			// Autocomplte
+			this.autocompleteEl = null ;
+			this.autocomplete = null ;
+
 		}
 		gmapper.prototype={
 			initMap : function(){
@@ -29,6 +33,43 @@
 					callback.call(self,e);
 
 				});
+
+			},
+
+			// Places autocomplete
+			makeAutocomplteElement:function(){
+
+				this.autocompleteEl = document.createElement('input');
+				this.autocompleteEl.setAttribute('type','text');
+				this.autocompleteEl.style.cssText = "z-index:10;position:relative;width:100%;";
+				this.element.appendChild(this.autocompleteEl);
+
+
+			},
+
+			initAutocomplete :function(){
+				this.makeAutocomplteElement();
+				this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteEl);
+				
+
+				this.registerAutocomplteChangeEvent();
+			},
+			registerAutocomplteChangeEvent:function(){
+				var self = this;
+				google.maps.event.addListener(self.autocomplete, 'place_changed', function() {
+  	
+			  		  var place = self.autocomplete.getPlace();
+				    if (!place.geometry) {
+				      return;
+				    }
+
+				    if (place.geometry.viewport) {
+				      self.map.fitBounds(place.geometry.viewport);
+				    } else {
+				      self.map.setCenter(place.geometry.location);
+				      self.map.setZoom(17);
+				    }
+			  	});
 
 			}
 		};
@@ -56,3 +97,4 @@ gmap._on('click',function(){
 	alert('click');
 	console.log(this);
 });
+gmap.initAutocomplete();
