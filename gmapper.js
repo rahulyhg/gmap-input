@@ -1,8 +1,7 @@
 (function(window,google){
-	console.log("gmapper loaded");
 
-	var gmapper = (function(){
-		var gmapper = function(element,options){
+	var gmapInput = (function(){
+		var gmapInput = function(element,options){
 
 			this.defalutOpt = {
 				center:{'lat':0,'lng':0},
@@ -18,7 +17,7 @@
 			this.autocomplete = null ;
 
 		}
-		gmapper.prototype={
+		gmapInput.prototype={
 			initMap : function(){
 			this.map = new google.maps.Map(this.element,this.options);
 			console.info(this.options);
@@ -41,7 +40,12 @@
 
 				this.autocompleteEl = document.createElement('input');
 				this.autocompleteEl.setAttribute('type','text');
-				this.autocompleteEl.style.cssText = "z-index:10;position:relative;width:100%;";
+				this.autocompleteEl.classList.add('gmap-auto-input');
+				this.autocompleteEl.style.cssText = "z-index:10;position:relative;width:99.56%;";
+				// this.autocompleteEl.addEventListener('click',function(e){
+				// 	alert('autocomplete');
+				// });
+				
 				this.element.appendChild(this.autocompleteEl);
 
 
@@ -74,27 +78,13 @@
 			}
 		};
 
-		return gmapper;
+		return gmapInput;
 	}());
 
-	window.gmapper = gmapper;
+	window.gmapInput = gmapInput;
 
 	if(window.google === undefined){
 		
 	}
 
 }(window,google));
-
-mapoptions = {
-				center:{lat: -34.397, lng: 150.644},
-				zoom:9,
-				disableDefaultUI:true
-			}
-
-gmap = new window.gmapper('map-canvas',mapoptions);
-gmap.initMap();
-gmap._on('click',function(){
-	alert('click');
-	console.log(this);
-});
-gmap.initAutocomplete();
