@@ -28,6 +28,9 @@
 gmap = new gmapInput('map-canvas',mapoptions);
 gmap.initMap();
 gmap.initAutocomplete();
+gmap._onAutoComplete('place_changed',function(){
+	alert('changed auto complete');
+});
     </script>
 
 </body>

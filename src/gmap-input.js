@@ -35,6 +35,18 @@
 
 			},
 
+			// Event for autocomplte
+			_onAutoComplete:function(event,callback){
+
+				var self = this;
+				google.maps.event.addListener(self.autocomplete,event, function(e) {
+
+					callback.call(self,e);
+
+				});
+
+			},
+
 			// Places autocomplete
 			makeAutocomplteElement:function(){
 
