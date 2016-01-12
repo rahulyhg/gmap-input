@@ -12,27 +12,36 @@ body{
 	position: relative;
 }
 .container{
-	width:70%;
+	width:90%;
 	margin: 10px auto;
-	background:#ddd;
+	background:#a66bbe;
 	min-height:500px;
 	text-align:center;
 	padding:10px;
 
 }
 #map-canvas{
-	width: 50%;
+	width: 70%;
 	min-height: 300px;
 	margin:10px auto;
+	border-radius:3px;
 
 }
 // Component styling
 .gmap-auto-input{
-
-	border:1px solid #dedede;
+	margin-top:.1em;
+	border:1px solid #cecece;
 	padding:5px;
 	border-radius:5px;
-	height:40px;
-	font-size:20px;
+	height:35px;
+	font-size:16px;
+	outline:none;
 
+}
+
+.content{
+	background:#fefefe;
+	text-align:left;
+	padding:1em;
+	margin-top:3em;
 }
