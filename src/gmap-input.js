@@ -1,3 +1,13 @@
+/**
+ *
+ * gmap-input
+ * Google autocomplete with map
+ * Created by 		: Sarath 
+ * copyright 2016	`: Sarath 
+ * http://github.com/saratonite
+ * 
+ */
+
 (function(window,google){
 
 	var gmapInput = (function(){
@@ -59,6 +69,17 @@
 				// });
 				
 				this.element.appendChild(this.autocompleteEl);
+				//this.makeRemoveButton();
+
+
+			},
+
+			makeRemoveButton:function(){
+
+				var resetBtn = document.createElement('button');
+				resetBtn.style.cssText = "z-index:11;position:relative;border:none;width: 1.5em;top: -27px;right:0;border-radius: 10px;line-height: 20px;";
+				resetBtn.innerText="x";
+				this.element.appendChild(resetBtn);
 
 
 			},

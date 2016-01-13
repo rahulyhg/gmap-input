@@ -1,7 +1,7 @@
 {
-  "name": "Gmap-input",
+  "name": "Gmap-Input",
   "version": "1.0.0",
-  "description": "Gmap-input library",
+  "description": "Gmap-Input",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
