@@ -51,7 +51,7 @@ gulp.task('script',function(){
  /**
   * Builsd Task
   */
- gulp.task('build',['script','minify']);
+ gulp.task('build',['script', 'minify']);
   
 
   gulp.task('default', ['server','watch']);
